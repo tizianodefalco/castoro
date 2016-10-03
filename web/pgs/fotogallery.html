@@ -1,0 +1,46 @@
+<h2>Fotogallery</h2>
+
+<div class="w3-tooltip">
+<img class="slide" src="../img/gatto.jpg">
+<p class="w3-text"><b>Gatto</b></p>
+</div>
+
+<div class="w3-tooltip">
+<img class="slide w3-tooltip" src="../img/orso.jpg">
+<p class="w3-text"><b>Orso</b></p>
+</div>
+
+<div class="w3-tooltip">
+<img class="slide" src="../img/scoiattolo.jpg">
+<p class="w3-text"><b>Scoiattolo volante</b></p>
+</div>
+
+<div class="w3-tooltip">
+<img class="slide" src="../img/castoro.png">
+<p class="w3-text"><b>Castoro</b></p>
+</div>
+
+<a class="w3-btn-floating-large" onclick="plusDivs(-1)">&#10094;</a> <!-- chiamo la funzione passando per parametro indice -1 per muoversi indietro di un'immagine nelle slide -->
+<a class="w3-btn-floating-large" onclick="plusDivs(+1)">&#10095;</a> <!-- chiamo la funzione passando parametro indice +1 per movermi avanti di un'immagine nelle slide-->
+	
+	<script>
+	
+		var slideIndex = 1; //pagina iniziale dello slideshow
+		showDivs(slideIndex);//invoca la funzione con parametro 1
+
+		function plusDivs(n) {
+			showDivs(slideIndex += n);
+		}
+
+		function showDivs(n) {
+		var i;
+		var x = document.getElementsByClassName("slide");//creiamo array i cui elementi sono le immagini di classe 'slide'
+		if (n > x.length) {slideIndex = 1} //se il parametro passato è superiore al numero di immagini si ritorna alla prima
+		if (n < 1) {slideIndex = x.length} ;//se l parametro passato è inferiore a uno si passa all'ultima immagine
+		for (i = 0; i < x.length; i++) {//
+			x[i].style.display = "none"; 
+		}
+		x[slideIndex-1].style.display = "block"; //visualizza immagine con indice parametro-1
+}
+
+</script>
